@@ -250,6 +250,115 @@ Tablet/Desktop layout (>=768px):
   border-color: var(--clr-border);
 }
 
+/* ===== DARK MODE — SUPPLEMENTAL VISIBILITY OVERRIDES =====
+   All rules below are additive dark-mode-only fixes.
+   Zero light-mode CSS is modified.
+   ========================================================= */
+
+/* 1. rec-statement: hardcoded white gradient → dark blue tint */
+[data-theme="dark"] .rec-statement {
+  background: linear-gradient(135deg, #1a2236, #1c2640);
+  color: var(--clr-text);
+}
+
+/* 2. rec-card-header hover: hardcoded #fafbff → dark card-hover */
+[data-theme="dark"] .rec-card-header:hover {
+  background: var(--clr-card-hover);
+}
+
+/* 3. open rec-card-header: barely-visible → clearly elevated */
+[data-theme="dark"] .rec-card.open .rec-card-header {
+  background: #1a2d4a;
+  border-bottom-color: var(--clr-border);
+}
+
+/* 4. TOC active link: near-invisible → blue-washed highlight */
+[data-theme="dark"] .toc-link.active {
+  background: linear-gradient(90deg, rgba(59,130,246,0.18), transparent);
+  color: var(--clr-primary);
+}
+[data-theme="dark"] .toc-link.active::before {
+  background: #3b82f6;
+  opacity: 1;
+}
+[data-theme="dark"] .toc-link:hover::before {
+  background: var(--clr-primary);
+  opacity: 0.7;
+}
+
+/* 5. TOC heading: text-subtle fails WCAG 3:1 → step up to text-muted */
+[data-theme="dark"] .toc-heading {
+  color: var(--clr-text-muted);
+}
+
+/* 6. Table zebra stripe: hardcoded #fafbfd at td level → near-transparent */
+[data-theme="dark"] .data-table tr:nth-child(even) td {
+  background: rgba(255,255,255,0.03);
+}
+
+/* 7. drug-card: border-light (#21262d) invisible against bg → upgrade border + shadow */
+[data-theme="dark"] .drug-card {
+  border-color: var(--clr-border);
+  box-shadow: 0 0 0 1px var(--clr-border), var(--shadow-sm);
+}
+
+/* 8. situation-card: same flatness issue as drug-card */
+[data-theme="dark"] .situation-card {
+  border-color: var(--clr-border);
+  box-shadow: 0 0 0 1px var(--clr-border), var(--shadow-sm);
+}
+
+/* 9. All badge variants: light pastels → dark-tinted bg + bright text (WCAG AA) */
+[data-theme="dark"] .badge-strong {
+  background: linear-gradient(135deg, #3b1212, #4a1515);
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}
+[data-theme="dark"] .badge-conditional {
+  background: linear-gradient(135deg, #3b2700, #4a3200);
+  color: #fcd34d;
+  border-color: #78350f;
+}
+[data-theme="dark"] .badge-certainty-vl {
+  background: linear-gradient(135deg, #1e2533, #222c3c);
+  color: #94a3b8;
+  border-color: #334155;
+}
+[data-theme="dark"] .badge-certainty-l {
+  background: linear-gradient(135deg, #052e16, #063a1b);
+  color: #6ee7b7;
+  border-color: #065f46;
+}
+[data-theme="dark"] .badge-certainty-m {
+  background: linear-gradient(135deg, #1e3a5f, #1e3d66);
+  color: #93c5fd;
+  border-color: #1e40af;
+}
+[data-theme="dark"] .badge-certainty-h {
+  background: linear-gradient(135deg, #052e16, #063a1b);
+  color: #34d399;
+  border-color: #059669;
+}
+
+/* 10. panel-tab hover: white-glass flash → subtle blue tint */
+[data-theme="dark"] .panel-tab {
+  color: var(--clr-text-muted);
+}
+[data-theme="dark"] .panel-tab:hover:not(.active) {
+  background: rgba(59,130,246,0.12);
+  color: var(--clr-primary);
+}
+
+/* 11. section-icon: no visible boundary on dark card → add ring */
+[data-theme="dark"] .section-icon {
+  background: #1e3a5f;
+  box-shadow: 0 0 0 1px #2d5a9e;
+}
+
+/* 12. callout: ensure body text inherits dark text var */
+[data-theme="dark"] .callout {
+  color: var(--clr-text);
+}
 
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
