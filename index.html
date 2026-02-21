@@ -360,6 +360,57 @@ Tablet/Desktop layout (>=768px):
   color: var(--clr-text);
 }
 
+/* 13. callout.warning — hardcoded color:#78350f (dark brown) invisible in dark mode */
+[data-theme="dark"] .callout.warning {
+  color: #fcd34d;
+  border-color: #78350f;
+}
+
+/* 14. callout.danger — hardcoded color:#7f1d1d (dark red) invisible in dark mode */
+[data-theme="dark"] .callout.danger {
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}
+
+/* 15. callout.success — ensure text readable if present */
+[data-theme="dark"] .callout.success {
+  color: #6ee7b7;
+  border-color: #065f46;
+}
+
+/* 16. callout.info — ensure text readable */
+[data-theme="dark"] .callout.info {
+  color: #93c5fd;
+  border-color: #1e40af;
+}
+
+/* 17. gps-card — hardcoded mint/teal gradient #f0fdfa/#ccfbf1 is blinding white in dark */
+[data-theme="dark"] .gps-card {
+  background: linear-gradient(135deg, #042f2e, #063a36);
+  border-color: #0d9488;
+  border-left-color: var(--clr-teal);
+}
+
+/* 18. age-table — entire table has ZERO dark mode overrides; faint rows invisible */
+[data-theme="dark"] .age-table {
+  border-color: var(--clr-border);
+}
+[data-theme="dark"] .age-table td {
+  border-bottom-color: var(--clr-border-light);
+  color: var(--clr-text);
+}
+[data-theme="dark"] .age-table tr:nth-child(even) td {
+  background: rgba(255,255,255,0.04);
+  color: var(--clr-text);
+}
+[data-theme="dark"] .age-table tr:hover td {
+  background: rgba(59,130,246,0.12);
+}
+[data-theme="dark"] .age-table thead th {
+  background: linear-gradient(135deg, #1c2230, #21262d);
+  color: var(--clr-text);
+}
+
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html {
